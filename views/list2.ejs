@@ -1,0 +1,42 @@
+<%- include("header") -%>
+<body>
+    <div id="heading" class="box">
+      <% if (ListTitle.includes("Saturday") || ListTitle.includes("Sunday")){ %>
+      <h1 style="color: rgb(5, 255, 159)"><%= ListTitle %></h1>
+      <% } else { %>
+      <h1 style="color: #f5f39a"><%= ListTitle %></h1>
+      <% } %>
+    </div>
+    <div class="box">
+     <%  newItems.forEach(item => {%>
+      <form action="/del" method="post">
+      <div class="item">
+        </form>
+        
+        <input type="hidden" name="ktorySzczyn" value="<%= ListTitle %>">
+        <input type="checkbox" onChange="this.form.submit()" name="szczyny" value="<%= item._id %>"
+         <p class="block"><%= item.zlotyDeszcz %></p> 
+    </div>
+     </form>
+    <% }) %>      
+          
+        
+  
+        
+      
+     
+
+      <form class="item" action="/" method="post">
+        <input
+          type="text"
+          class="todo"
+          name="szczochy"
+          placeholder="Następne szczanie, Sir?"
+          autocomplete="off"
+        />
+        <button class="btn-normal" type="submit" name="oszczanaLista" value="<%= ListTitle %>">+</button>
+      </form>
+     </div>
+  </body>
+  <%- include("footer") -%>
+</html>
